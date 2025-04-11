@@ -87,7 +87,7 @@ const handleOutgoingMessage = (e) => {
 
     setTimeout(() => {
         const messageContent = `<div class="bot-icon">
-                        <img src="../Chatbot-IA/assets/images/bot.svg" alt="Bot Icon" class="bot-icon-image" style="filter: invert(100%);">
+                        <img src="../assets/images/bot.svg" alt="Bot Icon" class="bot-icon-image" style="filter: invert(100%);">
                     </div>
                     <div class="message-text">
                         <div class="thinking-indicator">
@@ -140,7 +140,7 @@ fileCancelButton.addEventListener("click", () => {
 });
 
 const picker = new EmojiMart.Picker({
-    theme: "light",
+    theme: "dark",
     skinTonePosition: "none",
     previewPosition: "none",
     onClickOutside: (e) => {
