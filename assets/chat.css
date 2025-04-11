@@ -1,10 +1,21 @@
+:root {
+    --bg-color: #212121;
+    --text-color: #ffffff;
+    --input-message-color: #303030;
+}
+
+.light-theme {
+    --bg-color: #f5f5f5;
+    --text-color: #000000;
+    --input-message-color: #cdcdfa;
+}
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: "National Park", sans-serif;
-    color: white;
+    color: var(--text-color);
 }
 
 .chat-container {
@@ -127,7 +138,7 @@
     border-radius: 32px;
     align-items: center;
     outline: 1px solid #CCCCE5;
-    background: #303030;
+    background: var(--input-message-color);
 }
 
 .chat-footer .chat-form:focus-within{
@@ -144,7 +155,7 @@
     padding: 14px 0 13px 18px;
     border-radius: inherit;
     overflow-y: hidden;
-    background: #303030;
+    background: var(--input-message-color);
 }
 
 .chat-form .chat-controls{
@@ -163,7 +174,7 @@
     font-size: 1.15rem;
     cursor: pointer;
     color: rgb(132, 132, 235);
-    background: #303030;
+    background: var(--input-message-color);
     border-radius: 50%;
 }
 

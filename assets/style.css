@@ -2,21 +2,24 @@
     --side-bg-color: #171717;
     --bg-color: #212121;
     --text-color: #ffffff;
+    --box-shadow: #ffffff0d;
 }
 
 .light-theme {
-    --side-bg-color: #171717;
-    --bg-color: #212121;
-    --text-color: #ffffff;
+    --side-bg-color: #8484eb;
+    --bg-color: #E7DFD9;
+    --text-color: #000000;
+    --box-shadow: #0a0a0a0d;
 }
-
 
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden
+    overflow: hidden;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 main {
@@ -26,11 +29,12 @@ main {
     grid-template-columns: 20% 80%;
     width: 100vw;
     height: 100vh;
+    background-color: var(--bg-color);
 }
 
 main > aside.sidebar {
     grid-column: 1 / 2;
-    background-color: #171717;
+    background-color: var(--side-bg-color);
 
     display: flex;
     flex-direction: column;
@@ -42,28 +46,33 @@ main > aside.sidebar {
     width: 100%;
     height: 100vh;
     align-items: center;
+    color: var(--text-color);
 }
 
-.chat-manager > .chat-item{
-    box-shadow: 0px 1px 1px #ffffff0d;
+.chat-manager > .chat-item {
+    box-shadow: 0px 1px 1px var(--box-shadow);
     width: 90%;
     padding: 1rem;
+    color: var(--text-color);
 }
 
 .navbar {
     display: flex;
     align-items: center;
-    box-shadow: 0px 1px 0px #ffffff0d;
+    box-shadow: 0px 1px 0px var(--box-shadow);
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .navbar-brand {
     display: flex;
     flex-direction: row;
+    color: var(--text-color);
 }
 
 main > div.main-content {
     grid-column: 2 / 3;
-    background-color: #212121;
+    background-color: var(--bg-color);
     width: 100%;
     height: 100vh;
 }
@@ -73,13 +82,13 @@ main > div.main-content {
     position: relative;
     width: 100px;
     height: 50px;
-    --light: #d8dbe0;
-    --dark: #28292c;
+    --light: var(--text-color);
+    --dark: var(--bg-color);
     --link: rgb(27, 129, 112);
     --link-hover: rgb(24, 94, 82);
-  }
-  
-  .switch-label {
+}
+
+.switch-label {
     position: absolute;
     width: 100%;
     height: 50px;
@@ -87,27 +96,27 @@ main > div.main-content {
     border-radius: 25px;
     cursor: pointer;
     border: 3px solid var(--dark);
-  }
-  
-  .checkbox {
+}
+
+.checkbox {
     position: absolute;
     display: none;
-  }
-  
-  .slider {
+}
+
+.slider {
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 25px;
     -webkit-transition: 0.3s;
     transition: 0.3s;
-  }
-  
-  .checkbox:checked ~ .slider {
+}
+
+.checkbox:checked ~ .slider {
     background-color: var(--light);
-  }
-  
-  .slider::before {
+}
+
+.slider::before {
     content: "";
     position: absolute;
     top: 10px;
@@ -120,9 +129,9 @@ main > div.main-content {
     background-color: var(--dark);
     -webkit-transition: 0.3s;
     transition: 0.3s;
-  }
-  
-  .checkbox:checked ~ .slider::before {
+}
+
+.checkbox:checked ~ .slider::before {
     -webkit-transform: translateX(50px);
     -ms-transform: translateX(50px);
     transform: translateX(50px);
@@ -131,11 +140,10 @@ main > div.main-content {
     box-shadow: none;
 }
 
-.theme-switch{
+.theme-switch {
     transform: scale(0.6);
 }
 
-  
 @media (max-width: 768px) {
     main {
         display: flex; /* Faz com que o layout seja uma única coluna */
@@ -146,4 +154,3 @@ main > div.main-content {
         display: none; 
     }
 }
-

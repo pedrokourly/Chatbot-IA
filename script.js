@@ -4,7 +4,7 @@ const sendMessageButton = document.querySelector('#send_message');
 const fileInput = document.querySelector('#file-input');
 const fileUploadWrapper = document.querySelector('.file-upload-wrapper');
 const fileCancelButton = document.querySelector('#file-cancel');
-
+const themeToggleButton = document.querySelector('.theme-checkbox');
 const API_KEY = `AIzaSyBJwIPjrg1d33ZqPnAoobCG6JQOK1KGxuQ`
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
@@ -156,6 +156,17 @@ const picker = new EmojiMart.Picker({
         messageInput.focus();
     }
 })
+
+
+themeToggleButton.addEventListener('change', () => {
+    const mainElement = document.querySelector('main');
+    mainElement.classList.toggle('dark-theme');
+    mainElement.classList.toggle('light-theme'); // Alterna entre os temas
+
+    // Log para verificar o estado atual
+    const theme = mainElement.classList.contains('dark-theme') ? 'dark' : 'light';
+    console.log(`Theme toggled to: ${theme}`);
+});
 
 document.querySelector(".chat-form").appendChild(picker);
 
