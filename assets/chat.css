@@ -226,6 +226,12 @@ em-emoji-picker{
     transform: translateX(-50%);
 }
 
+@media (max-width: 768px) {
+    em-emoji-picker{
+        left: 50%;
+    }
+}
+
 body.show-emoji-picker em-emoji-picker{
     visibility: visible;
 }
