@@ -31,7 +31,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
 
     chatHistory.push({
         role: "user",
-        parts: [{ text: userData.message + " resposta em portugues brasil" }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
+        parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
     });
 
     const requestOptions = {
