@@ -31,7 +31,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
 
     chatHistory.push({
         role: "user",
-        parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
+        parts: [{ text: userData.message + " resposta em portugues brasil" }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
     });
 
     const requestOptions = {
@@ -87,7 +87,7 @@ const handleOutgoingMessage = (e) => {
 
     setTimeout(() => {
         const messageContent = `<div class="bot-icon">
-                        <img src="/assets/images/bot.svg" alt="Bot Icon" class="bot-icon-image" style="filter: invert(100%);">
+                        <img src="../Chatbot-IA/assets/images/bot.svg" alt="Bot Icon" class="bot-icon-image" style="filter: invert(100%);">
                     </div>
                     <div class="message-text">
                         <div class="thinking-indicator">

@@ -35,7 +35,6 @@
     display: flex;
     gap: 11px;
     align-items: center;
-    text-align: justify;
 }
 .chat-body .message .message-text{
     padding: 12px 16px;
