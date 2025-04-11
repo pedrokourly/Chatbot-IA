@@ -16,9 +16,12 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden
 }
 
 main {
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: 20% 80%;
     width: 100vw;
@@ -134,12 +137,13 @@ main > div.main-content {
 
   
 @media (max-width: 768px) {
-    main > aside.sidebar {
-        display: none;
+    main {
+        display: flex; /* Faz com que o layout seja uma única coluna */
+        flex-direction: column;
     }
 
-    main > div.main-content {
-        grid-column: 1 / 3;
+    main > aside.sidebar {
+        display: none; 
     }
 }
 
