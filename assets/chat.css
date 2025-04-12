@@ -241,6 +241,11 @@ em-emoji-picker{
     em-emoji-picker{
         left: 50%;
     }
+
+    .chat-container {
+        height: 70%;
+    }
+
 }
 
 body.show-emoji-picker em-emoji-picker{
