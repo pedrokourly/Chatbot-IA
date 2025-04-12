@@ -1,234 +1,155 @@
-* {
-    box-sizing: border-box;
+:root {
+    --side-bg-color: #171717;
+    --bg-color: #212121;
+    --text-color: #ffffff;
+    --box-shadow: #ffffff0d;
+}
+
+.light-theme {
+    --side-bg-color: #8484eb;
+    --bg-color: #E7DFD9;
+    --text-color: #000000;
+    --box-shadow: #0a0a0a0d;
+}
+
+html, body {
     margin: 0;
     padding: 0;
-    font-family: "National Park", sans-serif;
-}
-
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #4d4444;
-    flex-direction: column;
-}
-
-.chat {
-    background-color: white;
-    width: 420px;
-    border-radius: 20px;
-}
-
-.chat-body{
-    padding: 25px 22px;
-    display: flex;
-    gap: 20px;
-    height: 460px;
-    overflow-y: auto;
-    flex-direction: column;
-    scrollbar-width: thin;
-    scrollbar-color: #CCCCF5 transparent;
-}
-
-.chat-body .message{
-    display: flex;
-    gap: 11px;
-    align-items: center;
-}
-.chat-body .message .message-text{
-    padding: 12px 16px;
-    max-width: 75%;
-    font-size: 0.95rem;
-    background: #F2F2F2;
-    overflow-wrap: break-word;
-}
-
-.chat-body .bot-message .message-text{
-    padding: 12px;
-    background: #F2F2F2;
-    border-radius: 13px 13px 13px 3px;
-}
-
-.chat-body .user-message .message-text{
-    padding: 12px;
-    background: rgb(132, 132, 235);
-    color: white;
-    border-radius: 13px 13px 3px 13px;
-}
-
-.chat-body .user-message .attachment{
-    width: 50%;
-    margin-top: -7px;
-    border-radius: 13px 3px 13px 13px;
-}
-
-.chat-body .user-message{
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.bot-icon{
-    height: 35px;
-    width: 35px;
-    padding: 6px;
-    flex-shrink: 0;
-    margin-bottom: 2px;
-    align-self: flex-end;
-    background: rgb(132, 132, 235);
-    border-radius: 50%;
-}
-
-.chat-body .bot-message .thinking-indicator {
-    display: flex;
-    gap: 5px;
-    padding-block: 10px;
-}
-
-@keyframes dotPulse {
-    0%, 44% {
-        transform: translateY(0);
-    }
-
-    28% {
-        transform: translateY(-4px);
-    }
-
-    44% {
-        opacity: 0.2;
-    }
-}
-
-.chat-body .bot-message .thinking-indicator .dot{
-    height: 8px;
-    width: 8px;
-    opacity: 0.7;
-    background: rgb(132, 132, 235);
-    border-radius: 50%;
-    animation: dotPulse 1.8s ease-in-out infinite;
-}
-
-.chat-body .bot-message .thinking-indicator .dot:nth-child(1){
-    animation-delay: 0.2s;
-}
-
-.chat-body .bot-message .thinking-indicator .dot:nth-child(2){
-    animation-delay: 0.3s;
-}
-
-.chat-body .bot-message .thinking-indicator .dot:nth-child(3){
-    animation-delay: 0.4s;
-}
-
-.chat-footer{
-    padding: 15px 20px;
-}
-
-.chat-footer .chat-form{
-    display: flex;
-    position: relative;
-    border-radius: 32px;
-    align-items: center;
-    outline: 1px solid #CCCCE5;
-    background: white;
-}
-
-.chat-footer .chat-form:focus-within{
-    outline: 2px solid rgb(132, 132, 235);
-}
-
-.chat-form .message-input{
-    border: none;
-    outline: none;
-    height: 47px;
     width: 100%;
-    resize: none;
-    font-size: 0.95rem;
-    padding: 14px 0 13px 18px;
-    border-radius: inherit;
-    overflow-y: hidden;
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
-.chat-form .chat-controls{
+main {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+main > aside.sidebar {
+    grid-column: 1 / 2;
+    background-color: var(--side-bg-color);
+
     display: flex;
-    height: 47px;
+    flex-direction: column;
+}
+
+.chat-manager {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     align-items: center;
-    align-self: flex-end;
-    padding-right: 6px;
-    gap: 2px;
+    color: var(--text-color);
 }
 
-.chat-form .chat-controls button{
-    height: 35px;
-    width: 35px;
-    border: none;
-    font-size: 1.15rem;
+.chat-manager > .chat-item {
+    box-shadow: 0px 1px 1px var(--box-shadow);
+    width: 90%;
+    padding: 1rem;
+    color: var(--text-color);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 1px 0px var(--box-shadow);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.navbar-brand {
+    display: flex;
+    flex-direction: row;
+    color: var(--text-color);
+}
+
+main > div.main-content {
+    grid-column: 2 / 3;
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 100vh;
+}
+
+/* From Uiverse.io by Madflows */ 
+.toggle-switch {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    --light: var(--text-color);
+    --dark: var(--bg-color);
+    --link: rgb(27, 129, 112);
+    --link-hover: rgb(24, 94, 82);
+}
+
+.switch-label {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: var(--dark);
+    border-radius: 25px;
     cursor: pointer;
-    color: rgb(132, 132, 235);
-    background: #F1F1F1;
-    border-radius: 50%;
+    border: 3px solid var(--dark);
 }
 
-.chat-form .chat-controls button:hover{
-    background: #E1E1E1;
-}
-
-.chat-form .chat-controls #send_message{
-    color: white;
-    background-color: rgb(132, 132, 235);
+.checkbox {
+    position: absolute;
     display: none;
 }
 
-.chat-form .message-input:valid~.chat-controls #send_message{
-    display: block;
-}
-
-.chat-form .file-upload-wrapper {
-    height: 35px;
-    width: 35px;
-    position: relative;
-}
-
-
-.chat-form .file-upload-wrapper :where(img, button){
-    position: absolute;
-}
-
-.chat-form .file-upload-wrapper img{
+.slider {
     position: absolute;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+    border-radius: 25px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
 }
 
-.chat-form .file-upload-wrapper #file-cancel{
-    color: red;
-    background: white;
+.checkbox:checked ~ .slider {
+    background-color: var(--light);
 }
 
-.chat-form .file-upload-wrapper :where(img, #file-cancel),
-.chat-form .file-upload-wrapper.file-uploaded #file-upload {
-    display: none;
-}
-
-.chat-form .file-upload-wrapper.file-uploaded img,
-.chat-form .file-upload-wrapper.file-uploaded:hover #file-cancel {
-    display: block;
-}
-
-em-emoji-picker{
+.slider::before {
+    content: "";
     position: absolute;
-    left: 50%;
-    top: -337px;
-    width: 100%;
-    max-width: 350px;
-    max-height: 330px;
-    visibility: hidden;
-    transform: translateX(-50%);
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+    box-shadow: inset 12px -4px 0px 0px var(--light);
+    background-color: var(--dark);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
 }
 
-body.show-emoji-picker em-emoji-picker{
-    visibility: visible;
+.checkbox:checked ~ .slider::before {
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(50px);
+    background-color: var(--dark);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.theme-switch {
+    transform: scale(0.6);
+}
+
+@media (max-width: 768px) {
+    main {
+        display: flex; /* Faz com que o layout seja uma única coluna */
+        flex-direction: column;
+    }
+
+    main > aside.sidebar {
+        display: none; 
+    }
 }
