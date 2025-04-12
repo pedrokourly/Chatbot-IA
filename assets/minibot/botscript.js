@@ -4,7 +4,7 @@ const sendMessageButton = document.querySelector('#send_message');
 const fileInput = document.querySelector('#file-input');
 const fileUploadWrapper = document.querySelector('.file-upload-wrapper');
 const fileCancelButton = document.querySelector('#file-cancel');
-const themeToggleButton = document.querySelector('.theme-checkbox');
+
 const API_KEY = `AIzaSyBJwIPjrg1d33ZqPnAoobCG6JQOK1KGxuQ`
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
@@ -31,7 +31,7 @@ const generateBotResponse = async (incomingMessageDiv) => {
 
     chatHistory.push({
         role: "user",
-        parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
+        parts: [{ text: userData.message + " resposta em portugues brasil" }, ...(userData.file.data ? [{ inline_data: userData.file }] : [])],
     });
 
     const requestOptions = {
@@ -87,7 +87,7 @@ const handleOutgoingMessage = (e) => {
 
     setTimeout(() => {
         const messageContent = `<div class="bot-icon">
-                        <img src="./assets/images/bot.png" alt="Bot Icon" class="bot-icon-image">
+                        <img src="../images/bot.svg" alt="Bot Icon" class="bot-icon-image" style="filter: invert(100%);">
                     </div>
                     <div class="message-text">
                         <div class="thinking-indicator">
@@ -140,7 +140,7 @@ fileCancelButton.addEventListener("click", () => {
 });
 
 const picker = new EmojiMart.Picker({
-    theme: "dark",
+    theme: "light",
     skinTonePosition: "none",
     previewPosition: "none",
     onClickOutside: (e) => {
@@ -156,17 +156,6 @@ const picker = new EmojiMart.Picker({
         messageInput.focus();
     }
 })
-
-
-themeToggleButton.addEventListener('change', () => {
-    const mainElement = document.querySelector('main');
-    mainElement.classList.toggle('dark-theme');
-    mainElement.classList.toggle('light-theme'); // Alterna entre os temas
-
-    // Log para verificar o estado atual
-    const theme = mainElement.classList.contains('dark-theme') ? 'dark' : 'light';
-    console.log(`Theme toggled to: ${theme}`);
-});
 
 document.querySelector(".chat-form").appendChild(picker);
 
